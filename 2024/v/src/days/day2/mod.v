@@ -22,7 +22,7 @@ fn check_1(report []int) bool {
 		return false
 	}
 
-	if arrays.chunk_while(report, fn (b int, a int) bool { return is_good(b, a) })[0] != report {
+	if arrays.chunk_while(report, is_good)[0] != report {
 		return false
 	}
 
@@ -32,13 +32,7 @@ fn check_1(report []int) bool {
 pub fn part2(lines []string) int {
 	mut reports := parse(lines);
 
-	safe := reports.filter(check_1(it) || check_2(it));
-
-	for s in safe {
-		println(s.map(it.str()).join(' '));
-	}
-
-	return safe.len
+	return reports.filter(check_1(it) || check_2(it)).len
 }
 
 fn check_2(report []int) bool {
