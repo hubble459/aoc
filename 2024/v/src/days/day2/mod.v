@@ -15,8 +15,8 @@ pub fn part1(lines []string) int {
 
 fn check_1(report []int) bool {
 	if !is_sorted(report) {
-        return false
-    }
+		return false
+	}
 
 	if arrays.uniq(report) != report {
 		return false
