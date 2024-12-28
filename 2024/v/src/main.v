@@ -5,6 +5,7 @@ import flag;
 import time;
 import days.day1;
 import days.day2;
+import days.day3;
 
 fn main() {
 	mut fp := flag.new_flag_parser(os.args);
@@ -44,6 +45,7 @@ fn run(day int, part int) ! {
 	solution := match day {
 		1 { match part { 1 { day1.part1(lines) } 2 { day1.part2(lines) } else { panic('owo') } }}
 		2 { match part { 1 { day2.part1(lines) } 2 { day2.part2(lines) } else { panic('owo') } }}
+		3 { match part { 1 { day3.part1(lines) } 2 { day3.part2(lines) } else { panic('owo') } }}
 		else { exit(0) }
 	};
 
