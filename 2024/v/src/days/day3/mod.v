@@ -23,7 +23,24 @@ pub fn part1(lines []string) int {
 }
 
 pub fn part2(lines []string) int {
-	// program := parse(lines);
+	program := parse(lines);
 
-	return 0
+	mut re := regex.regex_opt(r"(mul\((\d+),(\d+)\))|(don't\(\))|(do\(\))") or { panic(err) };
+	matches := re.find_all_str(program);
+
+	mut result := 0;
+	mut yippee := true;
+
+	for m in matches {
+		if m.starts_with('don\'t') {
+			yippee = false;
+		} else if m.starts_with('do') {
+			yippee = true;
+		} else if yippee {
+			numbers := m.substr(4, m.len - 1).split(',');
+			result += numbers[0].int() * numbers[1].int();
+		}
+	}
+
+	return result
 }

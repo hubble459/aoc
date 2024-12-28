@@ -50,5 +50,5 @@ fn run(day int, part int) ! {
 	};
 
 	println('Solution for day ${day} part ${part} is: ${solution}');
-	println('took: ${sw.elapsed().milliseconds()} ms');
+	println('took: ${sw.elapsed().microseconds()} μs');
 }
